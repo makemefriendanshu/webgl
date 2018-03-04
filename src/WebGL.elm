@@ -22,6 +22,7 @@ module WebGL
         , stencil
         , antialias
         , clearColor
+        , preserveDrawingBuffer
         , unsafeShader
         )
 
@@ -44,7 +45,7 @@ before trying to do too much with just the documentation provided here.
 
 # Advanced Usage
 @docs entityWith, toHtmlWith, Option, alpha, depth, stencil, antialias,
-  clearColor
+  clearColor, preserveDrawingBuffer
 
 # Meshes
 @docs indexedTriangles, lines, lineStrip, lineLoop, points, triangleFan,
@@ -360,3 +361,14 @@ clamped between 0 and 1. The default is all 0's.
 clearColor : Float -> Float -> Float -> Float -> Option
 clearColor =
     ClearColor
+
+{-| By default, WebGL canvas swaps drawing and display buffers. 
+This option forces it to copy the drawing buffer into the display buffer.
+
+Even though this slows down the rendering, it allows you to extract the image from 
+the canvas element using `canvas.toBlob()` in JavaScript without having to worry 
+about the synchronization between frames.
+-}
+preserveDrawingBuffer : Option
+preserveDrawingBuffer =
+    PreserveDrawingBuffer

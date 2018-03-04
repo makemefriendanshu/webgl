@@ -570,7 +570,8 @@ var _elm_community$webgl$Native_WebGL = function () {
       depth: false,
       stencil: false,
       antialias: false,
-      premultipliedAlpha: false
+      premultipliedAlpha: false,
+      preserveDrawingBuffer: false
     };
     var sceneSettings = [];
 
@@ -600,6 +601,9 @@ var _elm_community$webgl$Native_WebGL = function () {
           sceneSettings.push(function (gl) {
             gl.clearStencil(s1);
           });
+          break;
+        case 'PreserveDrawingBuffer':
+          contextAttributes.preserveDrawingBuffer = true;
           break;
       }
     }, model.options);
