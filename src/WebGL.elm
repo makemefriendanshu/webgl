@@ -316,6 +316,7 @@ type Option
     | Stencil Int
     | Antialias
     | ClearColor Float Float Float Float
+    | PreserveDrawingBuffer
 
 
 {-| Enable alpha channel in the drawing buffer. If the argument is `True`, then
